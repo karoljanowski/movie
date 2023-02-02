@@ -162,7 +162,7 @@ function watchlistRender() {
 
 function renderWatchlist() {
     if (document.getElementById('watchlist')) {
-        //changeTheme(theme)
+        changeTheme(theme)
         watchlist = JSON.parse(localStorage.getItem('watchlist'))
         if (watchlist.length == 0) {
             emptyWatchlist()
