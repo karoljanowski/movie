@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+
+}
+
+:root {
+    --I-SEARCHBAR: #9CA3AF;
+    --TEXT-SEARCHBAR: #000000;
+    --BGC-SEARCHBAR: #FFFFFF;
+    --BTN-BGC: #F9FAFB;
+    --BTN-BORDER: #D1D5DB;
+    --BORDER-SEARCHBAR: #D1D5DB;
+    --BGC: #FFFFFF;
+    --I: #DFDDDD;
+    --TEXT-COLOR: #000000;
+    --PLOT: #6B7280;
+
+}
+
+
+
+header {
+    height: 30vh;
+    position: relative;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    background-image: url('bgimage.jpg');
+    background-size: cover;
+    background-position: 0 30%;
+    filter: brightness(30%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.header-content {
+    height: 100%;
+    display: flex;
+    gap: 0.5em;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+}
+
+.header-content .dark-mode {
+    align-self: flex-start;
+}
+
+.header-content .dark-mode i {
+    padding: 1em;
+}
+
+.header-content a {
+    color: white;
+    text-decoration: none;
+    border: 1px solid #E5E7EB;
+    padding: 0.5em;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.searchbar {
+    width: 90%;
+    margin: -1.5em auto 0;
+    display: flex;
+    border-radius: 5px;
+    border: 1px solid var(--BORDER-SEARCHBAR);
+    background-color: var(--BGC-SEARCHBAR);
+}
+
+.searchbar i {
+    padding: 1em 0em 1em 1em;
+    color: var(--I-SEARCHBAR);
+}
+
+.searchbar input {
+    flex-basis: 70%;
+    border: 0;
+    padding: 1em;
+    outline: 0;
+    font-size: inherit;
+    font-family: inherit;
+    background-color: var(--BGC-SEARCHBAR);
+    color: var(--TEXT-SEARCHBAR);
+}
+
+.searchbar button {
+    flex-grow: 1;
+    border: 1px solid var(--BTN-BORDER);
+    border-radius: 0px 8px 8px 0px;
+    font-size: inherit;
+    font-family: inherit;
+    color: black;
+    background-color: var(--BTN-BGC);
+}
+
+.movies {
+    min-height: 70vh;
+    padding: 3em 1em;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--BGC);
+
+}
+
+.start-exploring {
+    color: var(--I);
+    min-height: calc(75vh - 3em);
+    display: grid;
+    place-content: center;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.start-exploring i {
+    font-size: 5rem;
+}
+
+.movie {
+    margin-bottom: 1em;
+    display: grid;
+    grid-template-areas:
+        "img img h3 h3"
+        "img img h3 h3"
+        "img img rating duration"
+        "img img genre genre"
+        "img img watchlist watchlist"
+        "plot plot plot plot"
+
+    ;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    justify-items: center;
+    border-bottom: 1.5px solid #E5E7EB;
+    color: var(--TEXT-COLOR);
+}
+
+.movie img {
+    grid-area: img;
+    width: 100%;
+}
+
+.movie h3 {
+    grid-area: h3;
+    text-align: center;
+
+}
+
+.movie .rating {
+    grid-area: rating;
+}
+
+.movie .duration {
+    grid-area: duration;
+}
+
+.movie .genre {
+    grid-area: genre;
+    text-align: center;
+}
+
+.movie .watchlist {
+    grid-area: watchlist;
+    border: 1px solid #D1D5DB;
+    padding: 0.5em;
+    border-radius: 5px;
+}
+
+.movie .plot {
+    padding: 1em 0;
+    grid-area: plot;
+    color: var(--PLOT);
+}
+
+.watchlist-empty,
+.watchlist-empty i,
+.watchlist-empty a {
+    font-size: 1.3rem;
+    text-align: center;
+    padding: 0.5em;
+
+}
+
+.watchlist-empty a {
+    text-decoration: none;
+    color: var(--TEXT-COLOR);
+}
+
+@media (min-width: 500px) {
+    html {
+        font-size: 22px;
+    }
+}
+
+@media (min-width: 730px) {
+    .movie {
+        grid-template-areas:
+            "img img h3 h3"
+            "img img h3 h3"
+            "img img rating duration"
+            "img img genre watchlist"
+            "img img plot plot"
+            "img img plot plot"
+        ;
+        padding-bottom: 1em;
+
+    }
+
+    .movie img {
+        padding: 1em;
+    }
+
+    .header-content {
+        flex-direction: row;
+        justify-content: space-evenly;
+        font-size: 29px;
+    }
+
+}
+
+@media (min-width: 950px) {
+    .movie {
+        justify-items: start;
+    }
+
+    .movie img {
+        width: 60%;
+        justify-self: center;
+    }
+}
+
+@media (min-width: 1280px) {
+    html {
+        font-size: 26px;
+    }
+
+    .movie img {
+        width: 40%;
+    }
+}
